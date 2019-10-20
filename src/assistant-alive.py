@@ -13,10 +13,8 @@ with open (cache_file, "r") as read_file:
     cache = json.load(read_file)
 
 status = "ALIVE"
-
-while():
-    if (status == "ALIVE"):
+while 1==1:
+    if (status is "ALIVE"):
         response = requests.get(cache["URL_ALIVE"])    # make a get http request
-        status = response.data.status
-        print(status)
+        status = response.json()["status"]
         time.sleep(30)
