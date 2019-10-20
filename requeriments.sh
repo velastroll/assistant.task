@@ -1,7 +1,5 @@
 # configure scheduled task #
-echo "@reboot sudo python ./src/assistant-live.py &" >> mycron
-crontab mycron
-rm mycron
+(crontab -l ; echo "@reboot python ./src/assistant-alive.py &") | crontab -
 
 # install python dependencies
-sh ./src/dependencies.sh
+sudo sh ./src/dependencies.sh

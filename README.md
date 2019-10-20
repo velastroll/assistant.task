@@ -2,10 +2,14 @@
 
 ## First steps
 
-- Execute `requeriments.sh` to both install the dependencies as schedule tasks.
+- Execute both to install the dependencies as to schedule tasks:
+
+```zsh
+$ sh requeriments.sh
+```
 
 - Reboot the system.
 
 ## Tasks
 
-- **assistant-alive.py**: informs about it still alive sending a petition every 5 minutes.
+- **assistant-alive.py**: send a petition to the server to inform that it is still alive.
