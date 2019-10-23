@@ -1,1 +1,4 @@
-{"URL_ALIVE": "http://192.168.1.30:1302/test/SANVICENTEDELPALACIO"}
+{
+    "URL_SVDP": "http://virtual.lab.infor.uva.es:65143/towns/SANVICENTEDELPALACIO", 
+    "URL_ALIVE":"http://virtual.lab.infor.uva.es:65143/alive"
+}
