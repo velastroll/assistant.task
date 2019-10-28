@@ -8,10 +8,8 @@ import json
 from datetime import datetime
 
 cache_file = "/home/pi/assistant.task/src/cache.json"   # sets the name of the cache file
-# open the cache file and read the json
-with open (cache_file, "r") as read_file:
+with open (cache_file, "r") as read_file: # open the cache file and read the json
     cache = json.load(read_file)
-# cache_file.close()
 
 values = {'action_alive': 'ALIVE'}
 tmp = {'action': 'ALIVE'}
