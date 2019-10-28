@@ -13,7 +13,7 @@ time.sleep(2)
 
 # extract MAC
 with open(macfile, "r") as file: 
-    data = file.readline().replace('ether', '').replace("\t", '').replace("\n", '').replace(" ", '')
+    data = file.readline().replace('ether', '').replace("\t", '').replace("\n", '').replace(" ", '').substring(0, 17)
 with open(macfile, "w") as file:
     file.write(data)
 
