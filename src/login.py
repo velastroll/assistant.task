@@ -45,7 +45,8 @@ while (retrieved == False):
         file.write(response.content)
       retrieved = True
     else:
-       print("Oups!")
+      print("Cannot connect... waits 30 second to retry")
+      time.sleep(30)
   except Exception as err:
     print("Cannot connect to the host... try again in 30 seconds...")
     time.sleep(30)
