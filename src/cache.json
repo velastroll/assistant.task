@@ -1,5 +1,5 @@
 {
     "URL_SVDP": "http://virtual.lab.infor.uva.es:65143/towns/SANVICENTEDELPALACIO", 
-    "URL_ALIVE":"http://virtual.lab.infor.uva.es:65143/alive",
+    "URL_ALIVE":"http://virtual.lab.infor.uva.es:65143/device/alive",
     "URL_LOGIN": "http://virtual.lab.infor.uva.es:65143/device/login"
 }

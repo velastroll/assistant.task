@@ -1,2 +1,4 @@
-*macfile.txt
+*.pyc 
+*.txt 
+*__/
 *tokens.json
