@@ -2,3 +2,4 @@
 *.txt 
 *__/
 *tokens.json
+.vscode/settings.json
