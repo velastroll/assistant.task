@@ -15,4 +15,4 @@ while(1==1):
         print('[main] alive: ' + str(r))
         time.sleep(30)
         # no se puede mandar peticion, logear de nuevo
-        sempahore = r
+        semaphore = r

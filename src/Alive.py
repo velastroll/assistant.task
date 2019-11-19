@@ -39,6 +39,7 @@ class Alive:
                 elif (r['action'] == 'UPDATE'):
                     print(r['file'])
                 print('status_code: 300')
+                return True
             else:
                 print('Cannot send alive request: ' + str(response.content))
                 return False
