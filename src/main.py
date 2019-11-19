@@ -13,6 +13,6 @@ while(1==1):
         alive = Alive.Alive(tokens["access_token"])
         r = alive.send()
         print('[main] alive: ' + str(r))
-        time.sleep(300)
+        time.sleep(30)
         # no se puede mandar peticion, logear de nuevo
         sempahore = r
