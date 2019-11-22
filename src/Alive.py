@@ -2,11 +2,10 @@ import json
 import requests
 import os
 
-
 class Alive:
     def __init__(self, accesstoken):
         self.accesstoken = accesstoken
-        cache_file = "./cache.json"
+        cache_file = "./cache/cache.json"
         with open(cache_file, "r") as read_file:
             cache = json.load(read_file)
         self.url = cache["URL_ALIVE"]
@@ -27,19 +26,12 @@ class Alive:
                 print(response.content)
                 return True
             elif (response.status_code == 300):
-                print('Ha sido 300')
                 # parse response
                 t = response.content
-                print(str(t))
-                print('Procediendo a imprimirlo en un archivo...')
-                # TODO: DELETE THIS, ITS TO TEST
-                comando = "sudo echo '" + t + "' > /home/pi/assistant.task/src/task_retrieved.json"
-                os.system(comando)  # execute command
-                print('Impreso')
-                # receive a new task
                 r = json.loads(t)
-                print('r = json')
-                print('TO DO: ' + str(r[0]['event']))
+                comando = "sh ./tasks/" + str(r[0]['event']) + "/init.sh"
+                os.system(comando)  # execute command
+                
                 return True
             else:
                 print('Cannot send alive request: ' + str(response.content))
