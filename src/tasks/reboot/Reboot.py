@@ -7,7 +7,7 @@ try:
     with open(tkns_file, "r") as read_file:
         tkns = json.load(read_file)
     response = requests.get(
-        'http://virtual.lab.infor.uva.es:65143/device/tasks/REBOOT/doing',
+        'http://virtual.lab.infor.uva.es:65143/device/task/REBOOT/doing',
         headers={
             'Authorization': str(tkns['access_token'])
         })
