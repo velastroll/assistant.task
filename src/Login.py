@@ -6,7 +6,7 @@ import json;
 class Login:
     # initializer
     def __init__(self):
-        macfile = "/home/pi/assistant.task/src/macfile.txt"
+        macfile = "/home/pi/assistant.task/src/cache/macfile.txt"
         comando = "sudo ifconfig | grep ether > " + macfile
         os.system(comando) # execute command
         # wait to do more safe
@@ -25,7 +25,7 @@ class Login:
         self.credentials = credentials
 
     def signin(self):
-        cache_file = "./cache.json"
+        cache_file = "./cache/cache.json"
         with open (cache_file, "r") as read_file:
             cache = json.load(read_file)
         url = cache["URL_LOGIN"]
@@ -35,7 +35,7 @@ class Login:
             print('[login] post...')
             if (response.status_code == 200):
                 # save tokens
-                tokens = '/home/pi/assistant.task/src/tokens.json'
+                tokens = '/home/pi/assistant.task/src/cache/tokens.json'
                 with open(tokens, "w") as file:
                     file.write(response.content)
                 self.tokens = response.content
