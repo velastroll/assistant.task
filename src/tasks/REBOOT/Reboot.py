@@ -3,25 +3,24 @@ import requests
 import os
 
 try:
-    os.system('[reboot.py] --')
-    tkns_file = '/home/pi/assistant.task/src/cache/tokens.json'
-    with open(tkns_file, "r") as read_file:
+    os.system("echo '[reboot.py] --' > ./logs/log.reboot")
+    # extract token
+    with open('./cache/tokens.json', "r") as read_file:
         tkns = json.load(read_file)
-    os.system('[reboot.py] READ FILE')
+    # extract url
+    with open('./cache/cache.json', "r") as read_file:
+        cache = json.load(read_file)
+    # inform about the task
     response = requests.get(
-        'http://virtual.lab.infor.uva.es:65143/device/task/REBOOT/doing',
+        cache["URL_BASE"] + "/device/task/REBOOT/done",
         headers={
             'Authorization': str(tkns['access_token'])
         })
-    os.system(str(response))
-    print(response)
     if (response.status_code == 200):
-        # it's alive
+        # do the task
         command = "sudo reboot"
         os.system(command)
     else:
-        os.system('[reboot.py] ELSE')
-        print('[REBOOT.py] Cannot do the action due to a problem with the server.')
+        os.system("echo '[REBOOT.py] Cannot do the action"+ str(response) +"' > ./logs/log.reboot")
 except Exception as err:
-    os.system('[reboot.py] ERROR')
-    print('[REBOOT.py] There was a problem: ' + str(err))
+    os.system("echo '[REBOOT.py] Error: "+ str(err) +"' > ./logs/log.reboot")

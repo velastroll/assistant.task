@@ -5,14 +5,14 @@ import requests;
 import Login;
 import Alive;
 
+# método principal
 while(1==1):
     login = Login.Login()
     semaphore = login.signin()
+    # ALIVE solo si está logeado
     while (semaphore):
         tokens = json.loads(login.tokens)
         alive = Alive.Alive(tokens["access_token"])
-        r = alive.send()
-        print('[main] alive: ' + str(r))
-        time.sleep(30)
-        # no se puede mandar peticion, logear de nuevo
-        semaphore = r
+        semaphore = alive.send()
+        # espera para la siguiente petición
+        time.sleep(60)
