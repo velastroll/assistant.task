@@ -11,8 +11,8 @@ while(1==1):
     semaphore = login.signin()
     # ALIVE solo si esta logeado
     while (semaphore):
-        tokens = json.loads(login.tokens)
-        alive = Alive.Alive(tokens["access_token"])
+        conf = json.loads(login.tokens)
+        alive = Alive.Alive(conf["access_token"])
         semaphore = alive.send()
         # espera para la siguiente peticion
-        time.sleep(60)
+        time.sleep(conf["data"]["sleep_sec"])

@@ -34,10 +34,10 @@ class Login:
             response = requests.post(url, data = self.credentials)
             if (response.status_code == 200):
                 # save tokens
-                tokens = './cache/tokens.json'
+                tokens = './cache/config.json'
                 with open(tokens, "w") as file:
                     file.write(response.content)
-                self.tokens = response.content
+                    self.tokens = response.content
                 return True
             else:
                 os.system("echo '[login] Cannot sign in: " + str(response.content) + "' > ./logs/log.login")
