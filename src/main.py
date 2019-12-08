@@ -9,10 +9,13 @@ import Alive;
 while(1==1):
     login = Login.Login()
     semaphore = login.signin()
+    # extract token
+    with open('./cache/conf.json', "r") as read_file:
+        conf = json.load(read_file)
     # ALIVE solo si esta logeado
     while (semaphore):
-        conf = json.loads(login.tokens)
-        alive = Alive.Alive(conf["access_token"])
+        tokens = json.loads(login.tokens)
+        alive = Alive.Alive(tokens["access_token"])
         semaphore = alive.send()
         # espera para la siguiente peticion
-        time.sleep(conf["data"]["sleep_sec"])
+        time.sleep(conf["sleep_sec"])
