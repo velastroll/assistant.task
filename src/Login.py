@@ -34,7 +34,7 @@ class Login:
             response = requests.post(url, data = self.credentials)
             if (response.status_code == 200):
                 # save tokens
-                tokens = './cache/config.json'
+                tokens = './cache/token.json'
                 with open(tokens, "w") as file:
                     file.write(response.content)
                     self.tokens = response.content

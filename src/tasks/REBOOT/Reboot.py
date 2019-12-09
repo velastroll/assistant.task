@@ -5,7 +5,7 @@ import os
 try:
     os.system("echo '[reboot.py] --' > ./logs/log.reboot")
     # extract token
-    with open('./cache/conf.json', "r") as read_file:
+    with open('./cache/token.json', "r") as read_file:
         tkns = json.load(read_file)
     # extract url
     with open('./cache/cache.json', "r") as read_file:

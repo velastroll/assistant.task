@@ -2,6 +2,9 @@
 *.txt 
 *__/
 *tokens.json
+*token.json
+*test
 .vscode/settings.json
 *task_retrieved.json
 */log
+*log
