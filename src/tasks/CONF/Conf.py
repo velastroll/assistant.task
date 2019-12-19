@@ -32,10 +32,12 @@ try:
                 file.write(confData.content)
             file.close()
             # informs to server about successful task
+            print('> confirm update')
             response = requests.put(
                 cache["URL_BASE"] + "/device/conf/" + confDataJSON["timestamp"],
                 headers={
                     'Authorization': str(tkns['access_token'])
                 })
+            print('> Confirmed')
 except Exception as err:
     print("[CONF.py] Error: "+ str(err))
