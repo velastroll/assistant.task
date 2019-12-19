@@ -33,8 +33,11 @@ try:
             file.close()
             # informs to server about successful task
             print('> confirm update')
-            response = requests.put(
-                cache["URL_BASE"] + "/device/conf/" + confDataJSON["timestamp"],
+            print(confData)
+	    print(confData.content)
+	    print(confData.json())
+	    response = requests.put(
+                cache["URL_BASE"] + "/device/conf/" + confData.json()["timestamp"],
                 headers={
                     'Authorization': str(tkns['access_token'])
                 })
