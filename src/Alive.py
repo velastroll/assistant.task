@@ -26,6 +26,7 @@ class Alive:
                 t = response.content
                 r = json.loads(t)
                 # do the task
+                println(str(r[0]))
                 comando = "sh ./tasks/" + str(r[0]['event']) + "/init.sh"
                 os.system(comando)  # execute command
                 return True
