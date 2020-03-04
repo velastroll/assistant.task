@@ -13,14 +13,14 @@ try:
     read_file.close()
     # inform about the task
     response = requests.get(
-        cache["URL_BASE"] + "/device/task/CONF/doing",
+        cache["URL_BASE"] + "/device/tasks/CONF/doing",
         headers={
             'Authorization': str(tkns['access_token'])
         })
     if (response.status_code == 200):
         # retrieves config
         confData = requests.get(
-            cache["URL_BASE"] + "/device/conf",
+            cache["URL_BASE"] + "/device/confs",
             headers={
                 'Authorization': str(tkns['access_token'])
             })
@@ -37,7 +37,7 @@ try:
 	    print(confData.content)
 	    print(confData.json())
 	    response = requests.put(
-                cache["URL_BASE"] + "/device/conf/" + confData.json()["timestamp"],
+                cache["URL_BASE"] + "/device/confs/" + confData.json()["timestamp"],
                 headers={
                     'Authorization': str(tkns['access_token'])
                 })

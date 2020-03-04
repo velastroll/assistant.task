@@ -1,10 +1,5 @@
 *.pyc 
-*.txt 
-*__/
-*tokens.json
-*token.json
-*test
-.vscode/settings.json
-*task_retrieved.json
-*/log
+*.txt
 *log
+.json
+*log.updated
