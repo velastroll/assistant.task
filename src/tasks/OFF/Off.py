@@ -11,7 +11,7 @@ try:
         cache = json.load(read_file)
     # inform about the task
     response = requests.get(
-        cache["URL_BASE"] + "/device/task/OFF/doing",
+        cache["URL_BASE"] + "/device/tasks/OFF/doing",
         headers={
             'Authorization': str(tkns['access_token'])
         })
