@@ -31,8 +31,8 @@ class Alive:
                 os.system(comando)  # execute command
                 return True
             else:
-                os.system(" echo 'Cannot send alive request: " + str(response.content) + "' > ./logs/log.alive")
+                println("Cannot send alive request: " + str(response.content))
                 return False
         except Exception as err:
-            os.system(" echo 'Cannot send alive request: " + str(err) + "' > ./logs/log.alive")
+            println("Cannot send alive request: " + str(err))
             return False
