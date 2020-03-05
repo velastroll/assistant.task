@@ -3,8 +3,8 @@ import requests
 import os
 
 try:
-    println("[updated.py] --")
-    println("Updating Update")
+    print("[updated.py] --")
+    print("Updating Update")
     # extract token
     with open('./cache/token.json', "r") as read_file:
         tkns = json.load(read_file)
@@ -17,12 +17,12 @@ try:
         headers={
             'Authorization': str(tkns['access_token'])
         })
-    println(str(response))
+    print(str(response))
     if (response.status_code == 200):
         # do the task
         command = "sudo reboot"
         os.system(command)
     else:
-        println("[Updated.py] cannot do the action" + str(response) )
+        print("[Updated.py] cannot do the action" + str(response) )
 except Exception as err:
-    println("[UPDATE.py] Error: "+ str(err))
+    print("[UPDATE.py] Error: "+ str(err))

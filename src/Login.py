@@ -40,8 +40,8 @@ class Login:
                     self.tokens = response.content
                 return True
             else:
-                println("[login] Cannot sign in: " + str(response.content))
+                print("[login] Cannot sign in: " + str(response.content))
                 return False
         except Exception as err:
-            println("[login] Cannot connect to the host: " + str(err))
+            print("[login] Cannot connect to the host: " + str(err))
             return False

@@ -26,13 +26,13 @@ class Alive:
                 t = response.content
                 r = json.loads(t)
                 # do the task
-                println(str(r[0]))
+                print(str(r[0]))
                 comando = "sh ./tasks/" + str(r[0]['event']) + "/init.sh"
                 os.system(comando)  # execute command
                 return True
             else:
-                println("Cannot send alive request: " + str(response.content))
+                print("Cannot send alive request: " + str(response.content))
                 return False
         except Exception as err:
-            println("Cannot send alive request: " + str(err))
+            print("Cannot send alive request: " + str(err))
             return False

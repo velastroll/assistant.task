@@ -1,5 +1,5 @@
 > confirm update
 <Response [200]>
-{"device":"b8:27:eb:33:78:eb","timestamp":"2020-03-01T15:15:05.771393Z","pending":true,"body":{"sleep_sec":15}}
-{u'device': u'b8:27:eb:33:78:eb', u'timestamp': u'2020-03-01T15:15:05.771393Z', u'body': {u'sleep_sec': 15}, u'pending': True}
+{"device":"GLOBAL","timestamp":"2020-03-04T15:46:49.193051Z","pending":true,"body":{"sleep_sec":16}}
+{u'device': u'GLOBAL', u'timestamp': u'2020-03-04T15:46:49.193051Z', u'body': {u'sleep_sec': 16}, u'pending': True}
 > Confirmed
