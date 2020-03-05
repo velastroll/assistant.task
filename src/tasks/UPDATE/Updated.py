@@ -3,7 +3,7 @@ import requests
 import os
 
 try:
-    os.system("echo '[updated.py] --'")
+    print("[updated.py] --")
     print("Updating Update")
     # extract token
     with open('./cache/token.json', "r") as read_file:
@@ -23,6 +23,6 @@ try:
         command = "sudo reboot"
         os.system(command)
     else:
-        os.system("echo '[Updated.py] cannot do the action" + str(response) + "'")
+        print("[Updated.py] cannot do the action" + str(response) )
 except Exception as err:
-    os.system("echo '[UPDATE.py] Error: "+ str(err) +"'")
+    print("[UPDATE.py] Error: "+ str(err))

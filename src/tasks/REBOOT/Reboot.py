@@ -3,7 +3,7 @@ import requests
 import os
 
 try:
-    os.system("echo '[reboot.py] --' > ./logs/log.reboot")
+    print("[reboot.py] --")
     # extract token
     with open('./cache/token.json', "r") as read_file:
         tkns = json.load(read_file)
@@ -21,6 +21,6 @@ try:
         command = "sudo reboot"
         os.system(command)
     else:
-        os.system("echo '[REBOOT.py] Cannot do the action"+ str(response) +"' > ./logs/log.reboot")
+        print("[REBOOT.py] Cannot do the action")
 except Exception as err:
-    os.system("echo '[REBOOT.py] Error: "+ str(err) +"' > ./logs/log.reboot")
+    print("[REBOOT.py] Error: " + str(err))
