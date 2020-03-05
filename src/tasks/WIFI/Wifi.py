@@ -25,10 +25,10 @@ try:
             command = "sudo echo 'ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev\n"
             command += "update_config=1\ncountry=ES\n\nnetwork={\nssid=\"" + str(ssid[0]) + "\"\npsk=\"" + str(ssid[1]) + "\"\n}' "
             command += " > /boot/wpa_supplicant.conf"
-
             print('Generated command: \n' + str(command))
             os.system(command)
-            print('Executed command.')
+            print('Executed command, rebooting the system...')
+            os.system("sudo reboot")
     else:
         print("[Updated.py] cannot do the action" + str(response) )
 except Exception as err:
