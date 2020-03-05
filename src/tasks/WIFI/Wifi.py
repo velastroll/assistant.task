@@ -17,15 +17,18 @@ try:
         headers={
             'Authorization': str(tkns['access_token'])
         })
-    print(str(response))
-    print(str(response.json()))
-    print(str(response.json()['content']))
-    cssid = str(response.json()['content`]).split(';')
-
     if (response.status_code == 200):
-        # do the task
-        command = "sudo reboot"
-        os.system(command)
+        if (response.json()['content']):
+            print('Splitting response...')
+            ssid = str(response.json()['content']).split(';')
+            print(' > ' + str(ssid))
+            command = "sudo echo 'ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev\n"
+            command += "update_config=1\nnetwork={\nssid=" + str(ssid[0]) + "\npsk=" + str(ssid[1]) + "\n}' "
+            command += " > /boot/wpa_supplicant.conf"
+
+            print('Generated command: \n' + str(command))
+            os.system(command)
+            print('Executed command.')
     else:
         print("[Updated.py] cannot do the action" + str(response) )
 except Exception as err:
