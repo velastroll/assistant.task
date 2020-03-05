@@ -23,7 +23,7 @@ try:
             ssid = str(response.json()['content']).split(';')
             print(' > ' + str(ssid))
             command = "sudo echo 'ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev\n"
-            command += "update_config=1\nnetwork={\nssid=" + str(ssid[0]) + "\npsk=" + str(ssid[1]) + "\n}' "
+            command += "update_config=1\ncountry=ES\n\nnetwork={\nssid=\"" + str(ssid[0]) + "\"\npsk=\"" + str(ssid[1]) + "\"\n}' "
             command += " > /boot/wpa_supplicant.conf"
 
             print('Generated command: \n' + str(command))
